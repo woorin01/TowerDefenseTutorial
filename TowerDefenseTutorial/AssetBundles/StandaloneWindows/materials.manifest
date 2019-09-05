@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 3751038886
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7f659a6b6078a6362f8b24f6e106be76
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a15026e7645264409a88f84f584030a1
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Materials/Enemy.mat
+- Assets/Resources/Materials/Bullet.mat
+- Assets/Resources/Materials/Start.mat
+- Assets/Resources/Materials/End.mat
+- Assets/Resources/Materials/BulletImpact.mat
+- Assets/Resources/Materials/GroundPlane.mat
+- Assets/Resources/Materials/Ground.mat
+Dependencies: []

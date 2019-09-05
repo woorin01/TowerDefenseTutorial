@@ -1,0 +1,59 @@
+ManifestFileVersion: 0
+CRC: 3257958830
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f6b93402153a6e4ccc166271b5762ef8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0c05af043a61f2aae41146b47135cc2b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 92661e169856ba34482f5596b449d1b6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 88d591962a2caa64ea006107c1f92894, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 02c7d91e7753bdf4d8f985dc22a63480, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 26720e4ebffea384f8e5b0096729a477, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6c8d49be44002794eb7f97b1ed1c9457, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Prefabs/Bullet.prefab
+- Assets/Resources/Prefabs/Waypoint.prefab
+- Assets/Resources/Prefabs/START.prefab
+- Assets/Resources/Prefabs/BulletImpactEffect.prefab
+- Assets/Resources/Prefabs/END.prefab
+- Assets/Resources/Prefabs/GameManager.prefab
+- Assets/Resources/Prefabs/Ground.prefab
+- Assets/Resources/Prefabs/Node.prefab
+- Assets/Resources/Prefabs/Enemy.prefab
+- Assets/Resources/Prefabs/Tower.prefab
+- Assets/Resources/Prefabs/GroundPlane.prefab
+Dependencies:
+- "C:/Users/woori/OneDrive/\uBC14\uD0D5 \uD654\uBA74/TowerDefenseTutorial/TowerDefenseTutorial/AssetBundles/StandaloneWindows/materials"
