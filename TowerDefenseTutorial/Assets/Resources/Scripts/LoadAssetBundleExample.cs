@@ -46,12 +46,12 @@ public class LoadAssetBundleExample : MonoBehaviour
 
     }
 
-    IEnumerator LoadAssetBundleScene()
+    IEnumerator LoadAssetBundleScene(int sceneIndex)
     {
         if (AssetBundleManager.GetAssetBundle(sceneBundleURL, 0).isStreamedSceneAssetBundle)
         {
             string[] scenePaths = AssetBundleManager.GetAssetBundle(sceneBundleURL, 0).GetAllScenePaths();
-            string sceneName = Path.GetFileNameWithoutExtension(scenePaths[1]);
+            string sceneName = Path.GetFileNameWithoutExtension(scenePaths[sceneIndex]);
 
             SceneManager.LoadScene(sceneName);
         }
@@ -59,8 +59,15 @@ public class LoadAssetBundleExample : MonoBehaviour
     }
     public void Button()
     {
-        if(AssetBundleManager.GetAssetBundle(sceneBundleURL, 0))
-            StartCoroutine(LoadAssetBundleScene());
+        if (AssetBundleManager.GetAssetBundle(sceneBundleURL, 0))
+            StartCoroutine(LoadAssetBundleScene(0));
+
+    }
+
+    public void Button1()
+    {
+        if (AssetBundleManager.GetAssetBundle(sceneBundleURL, 0))
+            StartCoroutine(LoadAssetBundleScene(1));
     }
     public void Button2()
     {
@@ -68,11 +75,19 @@ public class LoadAssetBundleExample : MonoBehaviour
         {
             AssetBundle a = AssetBundleManager.GetAssetBundle(prefabBundleURL, 0);
             AssetBundleRequest abr = a.LoadAssetAsync<GameObject>("Tower");
-            Instantiate(abr.asset, new Vector3(15, 2, 75), Quaternion.identity, null);
+            
+            GameObject temp = Instantiate((GameObject)abr.asset, new Vector3(15, 2, 75), Quaternion.identity, null);
+
+            a = AssetBundleManager.GetAssetBundle(materialBundleURL, 0);
+            abr = a.LoadAssetAsync<Material>("Enemy");
+            temp.GetComponent<MeshRenderer>().material = (Material)abr.asset;
         }
     }
-    void OnDisable()
+    private void OnApplicationQuit()
     {
+        AssetBundleManager.Unload(sceneBundleURL, 0, false);
+        AssetBundleManager.Unload(materialBundleURL, 0, false);
         AssetBundleManager.Unload(prefabBundleURL, 0, false);
+
     }
 }

@@ -17,11 +17,6 @@ public class GameManager : MonoBehaviour
         enemyPrefab = Resources.Load<GameObject>("Prefabs/Enemy");
     }
 
-    void Update()
-    {
-
-    }
-
     IEnumerator WaveCountDown()
     {
         waveCountText.text = waveCount.ToString();

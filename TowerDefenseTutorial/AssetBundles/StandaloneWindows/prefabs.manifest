@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3257958830
+CRC: 253735378
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f6b93402153a6e4ccc166271b5762ef8
+    Hash: e0b2b95f7fe7660d88a7e7ddf25756da
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0c05af043a61f2aae41146b47135cc2b
@@ -53,7 +53,7 @@ Assets:
 - Assets/Resources/Prefabs/Ground.prefab
 - Assets/Resources/Prefabs/Node.prefab
 - Assets/Resources/Prefabs/Enemy.prefab
-- Assets/Resources/Prefabs/Tower.prefab
+- Assets/Resources/Prefabs/StandardTower.prefab
 - Assets/Resources/Prefabs/GroundPlane.prefab
 Dependencies:
 - "C:/Users/woori/OneDrive/\uBC14\uD0D5 \uD654\uBA74/TowerDefenseTutorial/TowerDefenseTutorial/AssetBundles/StandaloneWindows/materials"

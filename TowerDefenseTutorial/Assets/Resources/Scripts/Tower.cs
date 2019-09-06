@@ -5,15 +5,14 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     private Transform target;
-    private float range = 15f;
     private bool isShoot = false;
-    private float attackSpeed = 1f;
 
+    public float range = 15f;
+    public float attackSpeed;
     public Transform firePoint;
     public GameObject bulletPrefab;
     private void Start()
     {
-        bulletPrefab = Resources.Load<GameObject>("Prefabs/Bullet");
         StartCoroutine("CoroutineUpdate");
     }
 
@@ -77,6 +76,12 @@ public class Tower : MonoBehaviour
         {
             bullet.Target = target;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 
 }
