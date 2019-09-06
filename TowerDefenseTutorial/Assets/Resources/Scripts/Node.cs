@@ -3,12 +3,23 @@ using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
+    public Color startColor;
     public Color hoverColor;
     public Vector3 positionOffSet;
     public GameObject tower;
 
     private MeshRenderer meshRend;
-    private Color startColor;
+    public MeshRenderer MeshRend
+    {
+        get
+        {
+            return meshRend;
+        }
+        set
+        {
+            meshRend = value;
+        }
+    }//get set
 
     private void Start()
     {
@@ -29,14 +40,13 @@ public class Node : MonoBehaviour
         if (!BuildManager.instance.CanBuild)
             return;
 
-        if(tower != null)
+        if (tower != null)
         {
             Debug.Log("The turret is already installed");
             return;
         }
 
         BuildManager.instance.BuildTowerOn(this);
-        meshRend.material.color = startColor;
     }
 
     private void OnMouseEnter()
@@ -47,12 +57,15 @@ public class Node : MonoBehaviour
         if (!BuildManager.instance.CanBuild)
             return;
 
-        if (tower == null)
-            meshRend.GetComponent<MeshRenderer>().material.color = hoverColor;
+        if (BuildManager.instance.HasMoney && tower == null)
+            meshRend.material.color = hoverColor;
+        else
+            meshRend.material.color = Color.red;
+
     }
 
     private void OnMouseExit()
     {
-        meshRend.material.color = startColor;    
+        meshRend.material.color = startColor;
     }
 }

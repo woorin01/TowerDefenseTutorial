@@ -8,28 +8,41 @@ public class GameManager : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject spawnPoint;
     public Text waveCountText;
-    public int waveCount;
+    public float waveCount;
     private int waveNumber = 1;
 
     void Start()
     {
-        StartCoroutine("WaveCountDown");
+        //StartCoroutine("WaveCountDown");
         enemyPrefab = Resources.Load<GameObject>("Prefabs/Enemy");
     }
 
-    IEnumerator WaveCountDown()
+    private void Update()
     {
-        waveCountText.text = waveCount.ToString();
-        for (int i = waveCount; i > 0; i--)
+        if(waveCount <= 0f)
         {
-            waveCountText.text = i.ToString();
-            yield return new WaitForSeconds(1f);
+            StartCoroutine("SpawnEnemy");
+            waveCount = 5f;
         }
-        waveCount = 5;
-
-        StartCoroutine("WaveCountDown");
-        StartCoroutine("SpawnEnemy");
+        waveCount -= Time.deltaTime;
+        waveCount = Mathf.Clamp(waveCount, 0f, Mathf.Infinity);
+        waveCountText.text = string.Format("{0:00.00}", waveCount);//소숫점까지 보여주는 카운트다운
+        //waveCountText.text = Mathf.Floor(waveCount).ToString();//소숫점은 보여주지 않는 카운트다운
     }
+
+    //IEnumerator WaveCountDown()
+    //{
+    //    waveCountText.text = waveCount.ToString();
+    //    for (int i = waveCount; i > 0; i--)
+    //    {
+    //        waveCountText.text = i.ToString();
+    //        yield return new WaitForSeconds(1f);
+    //    }
+    //    waveCount = 5;
+
+    //    StartCoroutine("WaveCountDown");
+    //    StartCoroutine("SpawnEnemy");
+    //}
 
     IEnumerator SpawnEnemy()
     {
