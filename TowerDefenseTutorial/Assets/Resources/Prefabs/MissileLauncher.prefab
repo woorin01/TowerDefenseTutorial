@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 186482564289384341}
   - component: {fileID: 186482564289384340}
   - component: {fileID: 186482564289384347}
-  - component: {fileID: 186482564289384345}
+  - component: {fileID: -9067316057400649164}
   m_Layer: 0
   m_Name: MissileLauncher
   m_TagString: Untagged
@@ -110,7 +110,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &186482564289384345
+--- !u!114 &-9067316057400649164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,11 +119,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 186482564289384344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c8d49be44002794eb7f97b1ed1c9457, type: 3}
+  m_Script: {fileID: 11500000, guid: de2293acee983f940863d7f8bdb159ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   range: 25
-  attackSpeed: 4
-  firePoint: {fileID: 186482562950184277}
   bulletPrefab: {fileID: 5785971004069195487, guid: 8b568b7b3ea40b94fb3364c6b5b4d29d,
     type: 3}
+  attackSpeed: 3
+  towerDamage: 50
+  useLaser: 0
+  lineRenderer: {fileID: 0}
+  firePoint: {fileID: 186482562950184277}

@@ -80,7 +80,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Missile
 
-    Turret'
+    Launcher'
 --- !u!1 &5693262839998122488
 GameObject:
   m_ObjectHideFlags: 0

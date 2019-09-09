@@ -18,8 +18,6 @@ public class BuildManager : MonoBehaviour
             return PlayerStats.money >= towerToBuild.cost;
         }
     }
-    public GameObject standardTurretPrefab;
-    public GameObject MissileTurretPrefab;
 
     public GameObject buildEffect;
 

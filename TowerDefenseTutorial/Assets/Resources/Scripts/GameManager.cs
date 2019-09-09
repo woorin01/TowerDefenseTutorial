@@ -1,33 +1,52 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject gameOverUI;
     public GameObject enemyPrefab;
     public GameObject spawnPoint;
     public Text waveCountText;
     public float waveCount;
+
     private int waveNumber = 1;
+    public static bool gameIsOver = false;
 
     void Start()
     {
         //StartCoroutine("WaveCountDown");
         enemyPrefab = Resources.Load<GameObject>("Prefabs/Enemy");
-    }
+        gameIsOver = false;
+}
 
     private void Update()
     {
-        if(waveCount <= 0f)
+        if (gameIsOver)
+            return;
+
+        if(Input.GetKeyDown(KeyCode.E))
+            EndGame();
+
+        if (PlayerStats.lives <= 0)
+            EndGame();
+
+        WaveCount();//왼쪽 아래에 카운트다운 표시 및 적소환
+    }
+
+    private void WaveCount()
+    {
+        if (waveCount <= 0f)
         {
             StartCoroutine("SpawnEnemy");
             waveCount = 5f;
         }
         waveCount -= Time.deltaTime;
         waveCount = Mathf.Clamp(waveCount, 0f, Mathf.Infinity);
-        waveCountText.text = string.Format("{0:00.00}", waveCount);//소숫점까지 보여주는 카운트다운
-        //waveCountText.text = Mathf.Floor(waveCount).ToString();//소숫점은 보여주지 않는 카운트다운
+        waveCountText.text = string.Format("{0:00.00}", waveCount);//소수점까지 보여주는 카운트다운
+        //waveCountText.text = Mathf.Floor(waveCount).ToString();//소수점은 보여주지 않는 카운트다운
     }
 
     //IEnumerator WaveCountDown()
@@ -52,9 +71,19 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
         waveNumber++;
+        PlayerStats.rounds++;
     }
+
     private void MakeEnemy()
     {
         Instantiate<GameObject>(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
     }
+
+    private void EndGame()
+    {
+        gameIsOver = true;
+        gameOverUI.SetActive(true);
+        Debug.Log("Game Over!");
+    }
+
 }

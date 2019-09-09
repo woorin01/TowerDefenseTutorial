@@ -75,7 +75,7 @@ public class LoadAssetBundleExample : MonoBehaviour
         {
             AssetBundle a = AssetBundleManager.GetAssetBundle(prefabBundleURL, 0);
             AssetBundleRequest abr = a.LoadAssetAsync<GameObject>("Tower");
-            
+
             GameObject temp = Instantiate((GameObject)abr.asset, new Vector3(15, 2, 75), Quaternion.identity, null);
 
             a = AssetBundleManager.GetAssetBundle(materialBundleURL, 0);

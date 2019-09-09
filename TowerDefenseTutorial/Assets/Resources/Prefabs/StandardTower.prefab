@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6452249521812417503}
   - component: {fileID: 6452249521812417500}
   - component: {fileID: 6452249521812417501}
-  - component: {fileID: 6452249521812417498}
+  - component: {fileID: 5757406591528659534}
   m_Layer: 0
   m_Name: StandardTower
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6452249521812417498
+--- !u!114 &5757406591528659534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,12 +89,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6452249521812417499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c8d49be44002794eb7f97b1ed1c9457, type: 3}
+  m_Script: {fileID: 11500000, guid: de2293acee983f940863d7f8bdb159ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 7328056059395167384}
+  range: 15
   bulletPrefab: {fileID: 822948350762699489, guid: 3b0e1da2adce8174a9c27f2b56e2e006,
     type: 3}
+  attackSpeed: 1
+  towerDamage: 40
+  useLaser: 0
+  lineRenderer: {fileID: 0}
+  firePoint: {fileID: 7328056059395167384}
 --- !u!1 &8131393642657525819
 GameObject:
   m_ObjectHideFlags: 0

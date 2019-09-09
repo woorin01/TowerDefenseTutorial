@@ -14,7 +14,7 @@ public class MoneyUI : MonoBehaviour
 
     IEnumerator UpdateByCoroutine()
     {
-        for(; ; )
+        for (; ; )
         {
             moneyText.text = "$" + PlayerStats.money.ToString();
             yield return new WaitForSeconds(0.1f);
