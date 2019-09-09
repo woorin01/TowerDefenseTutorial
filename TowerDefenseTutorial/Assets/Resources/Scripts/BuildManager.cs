@@ -2,24 +2,26 @@
 
 public class BuildManager : MonoBehaviour
 {
-    private TowerBlueprint towerToBuild;
+    private TowerBlueprint turretToBuild;
+    private Node selectedNode;
 
+    public GameObject buildEffect;
+    public NodeUI nodeUI;
     public bool CanBuild
     {
         get
         {
-            return towerToBuild != null;
+            return turretToBuild != null;
         }
     }
     public bool HasMoney
     {
         get
         {
-            return PlayerStats.money >= towerToBuild.cost;
+            return PlayerStats.money >= turretToBuild.cost;
         }
     }
 
-    public GameObject buildEffect;
 
     public static BuildManager instance;
     private void Awake()
@@ -32,12 +34,12 @@ public class BuildManager : MonoBehaviour
 
     public void BuildTowerOn(Node node)
     {
-        if (PlayerStats.money < towerToBuild.cost)
+        if (PlayerStats.money < turretToBuild.cost)
             return;
 
-        PlayerStats.money -= towerToBuild.cost;
+        PlayerStats.money -= turretToBuild.cost;
 
-        GameObject temp = Instantiate(towerToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
+        GameObject temp = Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
         node.tower = temp;
         node.MeshRend.material.color = Color.red;
 
@@ -45,9 +47,30 @@ public class BuildManager : MonoBehaviour
         Destroy(temp, 4f);
     }
 
+    public void SelectNode(Node node)
+    {
+        if(selectedNode == node)
+        {
+            DeselectNode();
+            return;
+        }
+
+        selectedNode = node;
+        turretToBuild = null;
+
+        nodeUI.SetTarget(node);
+    }
+
+    public void DeselectNode()
+    {
+        selectedNode = null;
+        nodeUI.Hide();
+    }
+
     public void SelectTurretToBuild(TowerBlueprint tower)
     {
-        towerToBuild = tower;
+        turretToBuild = tower;
+        DeselectNode();
     }
 
 }

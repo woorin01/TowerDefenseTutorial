@@ -37,14 +37,14 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (!BuildManager.instance.CanBuild)
-            return;
-
         if (tower != null)
         {
-            Debug.Log("The turret is already installed");
+            BuildManager.instance.SelectNode(this);
             return;
         }
+
+        if (!BuildManager.instance.CanBuild)
+            return;
 
         BuildManager.instance.BuildTowerOn(this);
     }

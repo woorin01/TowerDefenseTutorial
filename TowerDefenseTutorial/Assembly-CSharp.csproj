@@ -76,6 +76,7 @@
     <Compile Include="Assets\Resources\Scripts\LoadBundle.cs" />
     <Compile Include="Assets\Resources\Scripts\MoneyUI.cs" />
     <Compile Include="Assets\Resources\Scripts\Node.cs" />
+    <Compile Include="Assets\Resources\Scripts\NodeUI.cs" />
     <Compile Include="Assets\Resources\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Resources\Scripts\Shop.cs" />
     <Compile Include="Assets\Resources\Scripts\TowerBlueprint.cs" />
