@@ -30,13 +30,13 @@ public class Paused : MonoBehaviour
     public void RetryButton()
     {
         Time.timeScale = 1f;
-        FindObjectOfType<SceneFader>().FadeTo(SceneManager.GetActiveScene().name);
+        SceneFader.instance.FadeTo(SceneManager.GetActiveScene().name);
     }
 
     public void MenuButton()
     {
         Time.timeScale = 1f;
-        FindObjectOfType<SceneFader>().FadeTo("MainMenu");
+        SceneFader.instance.FadeTo("MainMenu");
     }
 
 }

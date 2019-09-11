@@ -116,7 +116,8 @@ public class GameManager : MonoBehaviour
     public void WinLevel()
     {
         PlayerPrefs.SetInt("levelReached", levelToUnlock);
-        FindObjectOfType<SceneFader>().FadeTo(nextLevelSceneName);
+        SceneFader.instance.scenePrafabNum = levelToUnlock;
+        SceneFader.instance.FadeTo("Level");
     }
 
 }

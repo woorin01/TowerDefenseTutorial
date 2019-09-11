@@ -10,6 +10,8 @@ public class SceneFader : MonoBehaviour
 
     public Image fadeImage;
     public AnimationCurve fadeCurve;
+    public int scenePrafabNum;
+    public bool isFadeOut;
 
     private void Awake()
     {
@@ -23,12 +25,15 @@ public class SceneFader : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
+        if(SceneManager.GetActiveScene().name.Equals("Level"))
+            Instantiate(Resources.Load<GameObject>("Prefabs/Level" + scenePrafabNum.ToString()));
         StartCoroutine("FadeIn");
     }
 
     public void FadeTo(string sceneName)
     {
-        StartCoroutine(FadeOut(sceneName));
+        if(!isFadeOut)
+            StartCoroutine(FadeOut(sceneName));
     }
 
     private IEnumerator FadeIn()
@@ -46,6 +51,7 @@ public class SceneFader : MonoBehaviour
 
     private IEnumerator FadeOut(string sceneName)
     {
+        isFadeOut = true;
         Color c = fadeImage.color;
         for (float i = 0f; i <= 1f; i += 0.01f)
         {
@@ -54,7 +60,7 @@ public class SceneFader : MonoBehaviour
 
             yield return new WaitForSeconds(Time.deltaTime * 0.1f);
         }
-
+        isFadeOut = false;
         SceneManager.LoadScene(sceneName);
     }
 }

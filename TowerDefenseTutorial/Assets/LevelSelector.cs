@@ -7,7 +7,7 @@ public class LevelSelector : MonoBehaviour
 {
     public Button[] levelButtons;
 
-    private void Start()
+    private void Awake()
     {
         int levelReached = PlayerPrefs.GetInt("levelReached");
 
@@ -18,9 +18,10 @@ public class LevelSelector : MonoBehaviour
         }
     }
 
-    public void Select(string levelName)
+    public void Select(int scenePrefabNum)
     {
-        FindObjectOfType<SceneFader>().FadeTo(levelName);
+        SceneFader.instance.scenePrafabNum = scenePrefabNum;
+        SceneFader.instance.FadeTo("Level");
     }
 
 }

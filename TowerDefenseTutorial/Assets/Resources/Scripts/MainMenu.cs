@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        FindObjectOfType<SceneFader>().FadeTo(sceneToLoad);
+        SceneFader.instance.FadeTo(sceneToLoad);
     }
 
     public void Quit()
