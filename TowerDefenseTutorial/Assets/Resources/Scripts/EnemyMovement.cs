@@ -38,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
         wavepointIndex++;
         target = Waypoints.points[wavepointIndex];
 
-        transform.LookAt(Waypoints.points[wavepointIndex]);
+        //transform.LookAt(Waypoints.points[wavepointIndex]);
     }
 
     private void EndPath()
@@ -46,5 +46,6 @@ public class EnemyMovement : MonoBehaviour
         if (PlayerStats.lives > 0)
             PlayerStats.lives--;
         Destroy(gameObject);
+        GameManager.enemiesAlive--;
     }
 }

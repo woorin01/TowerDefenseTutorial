@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\LevelSelector.cs" />
     <Compile Include="Assets\Resources\Scripts\AssetBundleManager.cs" />
     <Compile Include="Assets\Resources\Scripts\BuildManager.cs" />
     <Compile Include="Assets\Resources\Scripts\Bullet.cs" />
@@ -74,13 +75,17 @@
     <Compile Include="Assets\Resources\Scripts\LivesUI.cs" />
     <Compile Include="Assets\Resources\Scripts\LoadAssetBundleExample.cs" />
     <Compile Include="Assets\Resources\Scripts\LoadBundle.cs" />
+    <Compile Include="Assets\Resources\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Resources\Scripts\MoneyUI.cs" />
     <Compile Include="Assets\Resources\Scripts\Node.cs" />
     <Compile Include="Assets\Resources\Scripts\NodeUI.cs" />
+    <Compile Include="Assets\Resources\Scripts\Paused.cs" />
     <Compile Include="Assets\Resources\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Resources\Scripts\SceneFader.cs" />
     <Compile Include="Assets\Resources\Scripts\Shop.cs" />
-    <Compile Include="Assets\Resources\Scripts\TowerBlueprint.cs" />
     <Compile Include="Assets\Resources\Scripts\Turret.cs" />
+    <Compile Include="Assets\Resources\Scripts\TurretBlueprint.cs" />
+    <Compile Include="Assets\Resources\Scripts\Wave.cs" />
     <Compile Include="Assets\Resources\Scripts\Waypoints.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/woori/OneDrive/바탕 화면/TowerDefenseTutorial/TowerDefenseTutorial/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

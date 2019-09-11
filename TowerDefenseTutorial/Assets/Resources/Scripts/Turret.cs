@@ -86,9 +86,11 @@ public class Turret : MonoBehaviour
 
     private void Laser()
     {
-        targetEnemy.TakeDamage(towerDamage * Time.deltaTime);
-        targetEnemy.Slow(slowAmount);
-
+        if (targetEnemy.health > 0)
+        {
+            targetEnemy.TakeDamage(towerDamage * Time.deltaTime);
+            targetEnemy.Slow(slowAmount);
+        }
         if (!lineRenderer.enabled)
         {
             lineRenderer.enabled = true;
@@ -165,5 +167,4 @@ public class Turret : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
-
 }

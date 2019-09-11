@@ -2,9 +2,9 @@
 
 public class Shop : MonoBehaviour
 {
-    public TowerBlueprint standardTurret;
-    public TowerBlueprint missileLauncher;
-    public TowerBlueprint laserBeamer;
+    public TurretBlueprint standardTurret;
+    public TurretBlueprint missileLauncher;
+    public TurretBlueprint laserBeamer;
 
     public void SelectStandardTurret()
     {

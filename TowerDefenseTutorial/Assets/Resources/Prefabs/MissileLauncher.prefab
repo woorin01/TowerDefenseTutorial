@@ -123,10 +123,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 25
+  towerDamage: 50
   bulletPrefab: {fileID: 5785971004069195487, guid: 8b568b7b3ea40b94fb3364c6b5b4d29d,
     type: 3}
-  attackSpeed: 3
-  towerDamage: 50
+  attackSpeed: 2.5
   useLaser: 0
+  slowAmount: 0.5
   lineRenderer: {fileID: 0}
+  laserImpactEffect: {fileID: 0}
+  laserImpactLight: {fileID: 0}
   firePoint: {fileID: 186482562950184277}

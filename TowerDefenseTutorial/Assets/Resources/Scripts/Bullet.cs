@@ -31,14 +31,13 @@ public class Bullet : MonoBehaviour
 
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;//거리 = 속력 * 시간;
-
+        
         if (dir.magnitude <= distanceThisFrame)
         {
             HitTarget();
             return;
         }
-
-        //if (Vector3.Distance(target.position, transform.position) <= 0.3f)
+        //if(Vector3.Distance(transform.position, target.position) <= 0.5f)
         //{
         //    HitTarget();
         //    return;
@@ -85,7 +84,7 @@ public class Bullet : MonoBehaviour
         if (e != null)
             e.TakeDamage(attackDamage);
     }
-
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

@@ -6,28 +6,34 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject gameOverUI;
-    public GameObject enemyPrefab;
-    public GameObject spawnPoint;
-    public Text waveCountText;
-    public float waveCount;
-
-    private int waveNumber = 1;
     public static bool gameIsOver = false;
+    public static int enemiesAlive = 0;
+
+    public GameObject gameOverUI;
+    public GameObject spawnPoint;
+    public Wave[] waves;
+    public Text waveCountText;
+
+    public string nextLevelSceneName;
+    public int levelToUnlock;
+
+    public float timeBetweenWaves = 5f;
+    private float waveCount = 2f;
+
+    private int waveNumber = 0;
 
     void Start()
     {
         //StartCoroutine("WaveCountDown");
-        enemyPrefab = Resources.Load<GameObject>("Prefabs/Enemy");
         gameIsOver = false;
-}
+    }
 
     private void Update()
     {
         if (gameIsOver)
             return;
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
             EndGame();
 
         if (PlayerStats.lives <= 0)
@@ -38,10 +44,21 @@ public class GameManager : MonoBehaviour
 
     private void WaveCount()
     {
+        if (enemiesAlive > 0)
+            return;
+
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0 && waveNumber.Equals(waves.Length))
+        {
+            WinLevel();
+            enabled = false;
+        }
+
         if (waveCount <= 0f)
         {
             StartCoroutine("SpawnEnemy");
-            waveCount = 5f;
+            waveCount = timeBetweenWaves;
+
+            return;
         }
         waveCount -= Time.deltaTime;
         waveCount = Mathf.Clamp(waveCount, 0f, Mathf.Infinity);
@@ -65,18 +82,28 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
-        for (int i = 0; i < waveNumber; i++)
+        PlayerStats.rounds++;
+
+        Wave wave = waves[waveNumber];
+        enemiesAlive = wave.count;
+
+        for (int i = 0; i < wave.count; i++)
         {
-            MakeEnemy();
-            yield return new WaitForSeconds(0.5f);
+            MakeEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f / wave.rate);
         }
         waveNumber++;
-        PlayerStats.rounds++;
+        Debug.Log(waveNumber.Equals(waves.Length));
+        if(waveNumber.Equals(waves.Length))
+        {
+            //WinLevel();
+            //enabled = false;
+        }
     }
 
-    private void MakeEnemy()
+    private void MakeEnemy(GameObject enemy)
     {
-        Instantiate<GameObject>(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+        Instantiate<GameObject>(enemy, spawnPoint.transform.position, Quaternion.identity);
     }
 
     private void EndGame()
@@ -84,6 +111,12 @@ public class GameManager : MonoBehaviour
         gameIsOver = true;
         gameOverUI.SetActive(true);
         Debug.Log("Game Over!");
+    }
+
+    public void WinLevel()
+    {
+        PlayerPrefs.SetInt("levelReached", levelToUnlock);
+        FindObjectOfType<SceneFader>().FadeTo(nextLevelSceneName);
     }
 
 }
