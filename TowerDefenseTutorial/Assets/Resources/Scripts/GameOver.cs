@@ -6,13 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public Text roundsText;
-
-    private void OnEnable()
-    {
-        roundsText.text = PlayerStats.rounds.ToString();
-    }
-
     public void Retry()
     {
         SceneFader.instance.FadeTo(SceneManager.GetActiveScene().name);

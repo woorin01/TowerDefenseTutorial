@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public int moneyValue = 50;
     public GameObject dieEffect;
     public Image healthBar;
+    private bool isDead = false;
 
     private void Start()
     {
@@ -29,12 +30,14 @@ public class Enemy : MonoBehaviour
         health -= amount;
         healthBar.fillAmount -= amount * mpHealth;
 
-        if (health <= 0)
+        if (health <= 0 && !isDead)
             Die();
     }
 
     private void Die()
     {
+        isDead = true;
+
         GameObject temp = Instantiate<GameObject>(dieEffect, transform.position, Quaternion.identity);
         Destroy(temp, 4f);
         Destroy(gameObject);

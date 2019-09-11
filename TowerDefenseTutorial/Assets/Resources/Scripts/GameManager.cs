@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static int enemiesAlive = 0;
 
     public GameObject gameOverUI;
+    public GameObject completeLevelUI;
     public GameObject spawnPoint;
     public Wave[] waves;
     public Text waveCountText;
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
         if (enemiesAlive > 0)
             return;
 
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0 && waveNumber.Equals(waves.Length))
+        if (waveNumber.Equals(waves.Length))
         {
             WinLevel();
             enabled = false;
@@ -94,11 +95,7 @@ public class GameManager : MonoBehaviour
         }
         waveNumber++;
         Debug.Log(waveNumber.Equals(waves.Length));
-        if(waveNumber.Equals(waves.Length))
-        {
-            //WinLevel();
-            //enabled = false;
-        }
+        
     }
 
     private void MakeEnemy(GameObject enemy)
@@ -112,12 +109,15 @@ public class GameManager : MonoBehaviour
         gameOverUI.SetActive(true);
         Debug.Log("Game Over!");
     }
-
+    
     public void WinLevel()
     {
-        PlayerPrefs.SetInt("levelReached", levelToUnlock);
+        if (PlayerPrefs.GetInt("levelReached") < levelToUnlock)
+            PlayerPrefs.SetInt("levelReached", levelToUnlock);
         SceneFader.instance.scenePrafabNum = levelToUnlock;
-        SceneFader.instance.FadeTo("Level");
+
+        gameIsOver = true;
+        completeLevelUI.SetActive(true);
     }
 
 }

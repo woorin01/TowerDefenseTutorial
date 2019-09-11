@@ -9,6 +9,7 @@ public class LevelSelector : MonoBehaviour
 
     private void Awake()
     {
+        //PlayerPrefs.SetInt("levelReached", 1);
         int levelReached = PlayerPrefs.GetInt("levelReached");
 
         for (int i = 0; i < levelButtons.Length; i++)
@@ -16,6 +17,7 @@ public class LevelSelector : MonoBehaviour
             if (i + 1 > levelReached)
                 levelButtons[i].interactable = false;
         }
+        
     }
 
     public void Select(int scenePrefabNum)
