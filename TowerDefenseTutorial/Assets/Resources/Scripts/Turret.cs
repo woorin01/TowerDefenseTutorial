@@ -97,7 +97,6 @@ public class Turret : MonoBehaviour
             laserImpactLight.enabled = true;
             laserImpactEffect.Play();
         }
-
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, target.position);
 
