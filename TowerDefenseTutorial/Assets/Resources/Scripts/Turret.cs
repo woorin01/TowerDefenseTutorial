@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    public delegate int TestDelegate(int a, int b);//1.반환형 같아야 됨 2.매개변수 개수 같아야 됨 3.매개변수 타입 같아아 됨
+    public TestDelegate td;
+
     [Header("General")]
     public float range = 15f;
     public int towerDamage;
@@ -77,7 +80,7 @@ public class Turret : MonoBehaviour
         Vector3 startPos = transform.position;
         Vector3 endPos = new Vector3(100f, 0, 100f);
 
-        for (float i = 0f; i <= 1f; i += Time.deltaTime)// or 0.01f or 아무 수
+        for (float i = Time.deltaTime; i <= 1f; i += Time.deltaTime * 7f)// or 0.01f or 아무 수
         {
             transform.position = Vector3.Lerp(startPos, endPos, i);
             yield return null;

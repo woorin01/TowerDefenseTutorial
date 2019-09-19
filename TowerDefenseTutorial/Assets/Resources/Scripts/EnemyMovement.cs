@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         target = Waypoints.points[0];
+
     }
 
     void Update()

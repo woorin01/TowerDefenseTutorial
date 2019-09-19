@@ -23,6 +23,7 @@ public class SceneFader : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         StartCoroutine("FadeIn");
     }
+
     private void OnLevelWasLoaded(int level)
     {
         if(SceneManager.GetActiveScene().name.Equals("Level"))
@@ -61,6 +62,7 @@ public class SceneFader : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime * 0.1f);
         }
         isFadeOut = false;
+
         SceneManager.LoadScene(sceneName);
     }
 }
