@@ -1,12 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneFader : MonoBehaviour
 {
-    public static SceneFader instance;
+    public static SceneFader instance;//SingleTone
 
     public Image fadeImage;
     public AnimationCurve fadeCurve;
@@ -26,14 +25,14 @@ public class SceneFader : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        if(SceneManager.GetActiveScene().name.Equals("Level"))
+        if (SceneManager.GetActiveScene().name.Equals("Level"))
             Instantiate(Resources.Load<GameObject>("Prefabs/Level" + scenePrafabNum.ToString()));
         StartCoroutine("FadeIn");
     }
 
     public void FadeTo(string sceneName)
     {
-        if(!isFadeOut)
+        if (!isFadeOut)
             StartCoroutine(FadeOut(sceneName));
     }
 

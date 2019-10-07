@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 //변수 쓰다가 변수 이름 바꿔야 할때는 변수 이름 클릭하고 Ctrl + R + R 하고 변수 이름 바꾸면 그 변수가 쓰인 곳 전부 그 이름으로 바뀜
@@ -25,6 +24,7 @@ public class Enemy : MonoBehaviour
         health = startHealth;
         mpHealth = 1 / startHealth;
     }
+
     public void TakeDamage(float amount)
     {
         health -= amount;

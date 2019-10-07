@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelSelector : MonoBehaviour
@@ -17,7 +15,7 @@ public class LevelSelector : MonoBehaviour
             if (i + 1 > levelReached)
                 levelButtons[i].interactable = false;
         }
-        
+
     }
 
     public void Select(int scenePrefabNum)

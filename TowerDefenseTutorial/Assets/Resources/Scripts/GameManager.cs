@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,9 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject completeLevelUI;
     public GameObject spawnPoint;
-    public Wave[] waves;
     public Text waveCountText;
-
+    public Wave[] waves;
     public string nextLevelSceneName;
     public int levelToUnlock;
 
@@ -95,7 +92,6 @@ public class GameManager : MonoBehaviour
         }
         waveNumber++;
         Debug.Log(waveNumber.Equals(waves.Length));
-        
     }
 
     private void MakeEnemy(GameObject enemy)
@@ -109,7 +105,7 @@ public class GameManager : MonoBehaviour
         gameOverUI.SetActive(true);
         Debug.Log("Game Over!");
     }
-    
+
     public void WinLevel()
     {
         if (PlayerPrefs.GetInt("levelReached") < levelToUnlock)

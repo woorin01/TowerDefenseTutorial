@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Paused : MonoBehaviour
@@ -24,7 +23,6 @@ public class Paused : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
-
     }
 
     public void RetryButton()

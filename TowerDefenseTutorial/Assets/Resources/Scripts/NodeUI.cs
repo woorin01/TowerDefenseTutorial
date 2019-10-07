@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class NodeUI : MonoBehaviour
@@ -31,7 +29,7 @@ public class NodeUI : MonoBehaviour
             upgradeCost.text = "DONE";
             sellAmount.text = "$" + _target.turretBlueprint.GetSellAmountIsUpgraded().ToString();
         }
-       
+
 
         canvas.SetActive(true);
     }

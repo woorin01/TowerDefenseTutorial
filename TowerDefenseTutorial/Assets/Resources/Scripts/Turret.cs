@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
@@ -75,7 +73,7 @@ public class Turret : MonoBehaviour
 
     }
 
-    IEnumerator lerp()//보간을 이런식으로 사용하면 startPos가 어떻던 객체가 endPos로 도달하기 까지의 시간이 같다
+    IEnumerator Lerp()//보간을 이런식으로 사용하면 startPos가 어떻던 객체가 endPos로 도달하기 까지의 시간이 같다
     {
         Vector3 startPos = transform.position;
         Vector3 endPos = new Vector3(100f, 0, 100f);
@@ -109,7 +107,7 @@ public class Turret : MonoBehaviour
         laserImpactEffect.transform.LookAt(firePoint);
     }
 
-    IEnumerator CoroutineUpdate()
+    private IEnumerator CoroutineUpdate()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject nearsetEnemy = null;
@@ -143,7 +141,7 @@ public class Turret : MonoBehaviour
         StartCoroutine("CoroutineUpdate");
     }
 
-    IEnumerator FireBullet()
+    private IEnumerator FireBullet()
     {
         isShoot = true;
         MakeBullet();

@@ -1,10 +1,7 @@
-﻿using System;
-using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
-using UnityEditor;
+﻿using System.Collections;
 using System.IO;
-using UnityEngine.Networking;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadAssetBundleExample : MonoBehaviour
 {
