@@ -15,7 +15,7 @@ public class LevelSelector : MonoBehaviour
             if (i + 1 > levelReached)
                 levelButtons[i].interactable = false;
         }
-
+        
     }
 
     public void Select(int scenePrefabNum)
