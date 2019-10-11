@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UniRx;
+using System;
 
 public class Turret : MonoBehaviour
 {
@@ -31,10 +33,18 @@ public class Turret : MonoBehaviour
     private void Start()
     {
         StartCoroutine("CoroutineUpdate");
+
+        var clikc = Observable.EveryUpdate()
+            .Where(_ => Input.GetMouseButtonDown(0));
+
+        clikc.Buffer(clikc.Throttle(TimeSpan.FromMilliseconds(200)))
+            .Where(x => x.Count >= 2)
+            .Subscribe(_ => { Debug.Log("click 2"); });
     }
 
     private void Update()
     {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (target == null)
         {
             if (useLaser)

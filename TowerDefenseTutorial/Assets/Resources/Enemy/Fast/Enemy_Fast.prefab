@@ -209,6 +209,7 @@ MonoBehaviour:
   startSpeed: 30
   speed: 15
   startHealth: 50
+  health: 100
   moneyValue: 55
   dieEffect: {fileID: 617680689103065954, guid: fe25bf5a0494ee242801c1036f14261d,
     type: 3}
